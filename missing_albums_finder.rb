@@ -16,7 +16,7 @@ module MissingAlbumsFinder
     def initialize(queue)
       super do
         Net::HTTP.start("itunes.apple.com", 80) do |http|
-          while (work = queue.pop) != nil do
+          until (work = queue.pop).nil? do
             do_work(http, work[0], work[1])
           end
         end
@@ -77,12 +77,11 @@ module MissingAlbumsFinder
       end
     end
 
-    def run
-      queue = Queue.new.tap do |q|
-        @music.entries.each { |w| q << w }
-        8.times { q << nil }
-      end
-      8.times.map { Worker.new(queue) }.each(&:join)
+    def run(workers = 8)
+      queue = Queue.new
+      @music.entries.each { |w| queue << w }
+      workers.times { queue << nil } # stopping marker
+      workers.times.map { Worker.new(queue) }.each(&:join)
     end
   end # MissingAlbumsFinder
 end # Module
