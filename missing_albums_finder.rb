@@ -86,7 +86,7 @@ module MissingAlbumsFinder
   end # MissingAlbumsFinder
 end # Module
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   xml = ARGV.empty? ? "~/Music/iTunes/iTunes\ Music\ Library.xml" : ARGV.first
   MissingAlbumsFinder::MissingAlbumsFinder.new(xml).run
 end
