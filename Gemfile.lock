@@ -1,0 +1,16 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    fuzzy_match (1.4.0)
+      to_regexp (>= 0.0.3)
+    itunes-library (0.1.1)
+      plist
+    plist (3.1.0)
+    to_regexp (0.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fuzzy_match
+  itunes-library
