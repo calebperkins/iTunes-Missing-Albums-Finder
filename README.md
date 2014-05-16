@@ -1,6 +1,6 @@
 # Missing Albums Finder
 
-Scans your iTunes library and prints out albums that you do not have. This was initially a coding exercise but you may find it useful.
+Scans the artists in your iTunes library and prints out albums that you do not have. This was initially a coding exercise but you may find it useful.
 
 ## To use
 
